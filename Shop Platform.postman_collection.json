@@ -1,0 +1,229 @@
+{
+	"info": {
+		"_postman_id": "f0bcc0ce-1dad-4297-abae-461b8e3fffda",
+		"name": "Shop Platform",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"kamyar\",\n    \"password\": \"passs\",\n    \"firstname\": \"ks\",\n    \"lastname\": \"sm\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/shop/signup",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"shop",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"kamyar\",\n    \"password\": \"passs\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/shop/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"shop",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change user's password",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImthbXlhciIsInVzZXJJZCI6IjEiLCJpYXQiOjE2NzYwMzAwMDUsImV4cCI6MTY3NjAzMDMwNX0.NXU-igC0DAh7sT7BsVNOYc3Cc0nAwiwVpytK1Jf8BLw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"kamyar2\",\n    \"password\": \"passs2\",\n    \"newPassword\": \"passs3\",\n    \"confirmNewPassword\": \"passs3\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/shop/changepassword",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"shop",
+						"changepassword"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Adding a product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImthbXlhciIsInVzZXJJZCI6IjEiLCJpYXQiOjE2NzYwMzIzNDEsImV4cCI6MTY3NjAzNDE0MX0.lky8yXSnePzIHgqiPlqsk2OIGuiAumMRXwIJyW3vYoQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"TV\",\n    \"price\": 12.5,\n    \"description\": \"Very good TV\",\n    \"imageUrl\": \"https://upload.wikimedia.org/No_image_available.svg\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/shop/addproduct",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"shop",
+						"addproduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editing a product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImthbXlhciIsInVzZXJJZCI6IjEiLCJpYXQiOjE2NzYwMzIzNDEsImV4cCI6MTY3NjAzNDE0MX0.lky8yXSnePzIHgqiPlqsk2OIGuiAumMRXwIJyW3vYoQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Good TV 2\",\n    \"price\": 1000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/shop/editproduct?product=5",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"shop",
+						"editproduct"
+					],
+					"query": [
+						{
+							"key": "product",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting a product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/shop/product/2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"shop",
+						"product",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "File Upload",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/user/Kamyar Sedghi/ShopProject/convertcsvLarge (3).csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/upload",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"upload"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

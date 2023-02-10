@@ -1,0 +1,7 @@
+{
+    "development": {
+        "database": "test-db",
+        "username": "root",
+        "password": "root12345"
+    }
+}
